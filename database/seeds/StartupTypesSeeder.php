@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTypesSeeder extends Seeder
+class StartupTypesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,21 +11,25 @@ class UserTypesSeeder extends Seeder
      */
     public function run()
     {
-
-        DB::statement('TRUNCATE TABLE user_types');
+        DB::statement('TRUNCATE TABLE startup_types');
         $data = [
             [
-                'user_type' => 'Investor',
+                'startup_type' => 'Female Owned',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ],
             [
-                'user_type' => 'Startup',
+                'startup_type' => 'Female Led',
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
+            ],
+            [
+                'startup_type' => 'Gender Bias',
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ]
         ];
 
-        \App\UserType::insert($data);
+        \App\StartupType::insert($data);
     }
 }
