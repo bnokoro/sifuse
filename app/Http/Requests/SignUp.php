@@ -26,10 +26,12 @@ class SignUp extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-            'country' => 'required|exists:countries,id',
+            'email' => 'required|unique:users',
+            'phone' => 'required|unique:users',
+            'country_id' => 'required|exists:countries,id',
             'password' => 'required',
-            'startup_type_id' => 'required'
+            'startup_type_id' => 'required|exists:startup_types,id',
+            'user_type_id' => 'required|exists:user_types,id'
         ];
     }
 }
