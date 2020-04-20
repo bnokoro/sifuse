@@ -77,4 +77,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(StartupFinance::class);
     }
+
+    public function investorProfile()
+    {
+        return $this->hasOne(InvestorProfile::class);
+    }
+
+    public function investorInterest()
+    {
+        return $this->hasOne(InvestorInterest::class);
+    }
 }

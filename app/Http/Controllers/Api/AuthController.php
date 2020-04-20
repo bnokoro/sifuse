@@ -27,7 +27,7 @@ class AuthController extends Controller
             return $this->respondWithError('Email or password invalid');
         }
 
-        return $this->respondWithSuccess(['message' => 'Logged in successfully', 'user' => $user, 'token' => $this->generateToken($user)]);
+        return $this->respondWithSuccess(['message' => 'Logged in successfully', 'user' => $user->load('userType:id,user_type'), 'token' => $this->generateToken($user)]);
     }
 
     public function signup(SignUp $request)
@@ -35,7 +35,7 @@ class AuthController extends Controller
         $user = User::create($request->except('password') + ['password' => Hash::make($request->password)]);
         SendRegistrationMail::dispatch($user);
 
-        return $this->respondWithSuccess(['user' => $user, 'token' => $this->generateToken($user)]);
+        return $this->respondWithSuccess(['user' => $user->load('userType:id,user_type'), 'token' => $this->generateToken($user)]);
     }
 
     private function generateToken(User $user)

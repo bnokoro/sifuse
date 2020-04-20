@@ -29,7 +29,7 @@ class SignUp extends FormRequest
             'email' => 'required|unique:users',
             'country_id' => 'required|exists:countries,id',
             'password' => 'required',
-            'startup_type_id' => 'required|exists:startup_types,id',
+            'startup_type_id' => 'required_if:user_type_id,2|exists:startup_types,id',
             'user_type_id' => 'required|exists:user_types,id'
         ];
     }
