@@ -13,6 +13,14 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('user', 'UserController@index');
+        Route::prefix('startups')->group(function() {
+            Route::get('/', 'StartupProfileController@index');
+            Route::post('/', 'StartupProfileController@store');
+            Route::post('/company', 'StartupProfileController@storeCompanyDetails');
+            Route::post('/product-service', 'StartupProfileController@storeProductService');
+            Route::post('/market', 'StartupProfileController@storeMarket');
+            Route::post('/finance', 'StartupProfileController@storeFinance');
+        });
     });
 });
 

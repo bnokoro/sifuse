@@ -27,7 +27,6 @@ class SignUp extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|unique:users',
-            'phone' => 'required|unique:users',
             'country_id' => 'required|exists:countries,id',
             'password' => 'required',
             'startup_type_id' => 'required|exists:startup_types,id',

@@ -52,4 +52,29 @@ class User extends Authenticatable
     {
         return $this->belongsTo(StartupType::class);
     }
+
+    public function startupProfile()
+    {
+        return $this->hasOne(StartupProfile::class);
+    }
+
+    public function startupCompany()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function startupServices()
+    {
+        return $this->hasOne(ProductService::class);
+    }
+
+    public function startupMarket()
+    {
+        return $this->hasOne(StartupMarket::class);
+    }
+
+    public function startupFinance()
+    {
+        return $this->hasOne(StartupFinance::class);
+    }
 }
