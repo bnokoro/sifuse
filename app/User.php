@@ -37,4 +37,54 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function userType()
+    {
+        return $this->belongsTo(UserType::class);
+    }
+
+    public function startupType()
+    {
+        return $this->belongsTo(StartupType::class);
+    }
+
+    public function startupProfile()
+    {
+        return $this->hasOne(StartupProfile::class);
+    }
+
+    public function startupCompany()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function startupServices()
+    {
+        return $this->hasOne(ProductService::class);
+    }
+
+    public function startupMarket()
+    {
+        return $this->hasOne(StartupMarket::class);
+    }
+
+    public function startupFinance()
+    {
+        return $this->hasOne(StartupFinance::class);
+    }
+
+    public function investorProfile()
+    {
+        return $this->hasOne(InvestorProfile::class);
+    }
+
+    public function investorInterest()
+    {
+        return $this->hasOne(InvestorInterest::class);
+    }
 }

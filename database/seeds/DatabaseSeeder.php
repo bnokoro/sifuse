@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
          $this->call(UserTypesSeeder::class);
          $this->call(StartupTypesSeeder::class);
+         $this->call(IndustrySeeder::class);
+         $this->call(StartupStageSeeder::class);
 //         $this->call(CountrySeeder::class);
     }
 }
